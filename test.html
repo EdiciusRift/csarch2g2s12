@@ -16,11 +16,9 @@
         }
         #jumbo{
           background-color: transparent;
-          height: 125px;
-          text-align: center; 
+          text-align: center;
           color: black; font-family:'LEMONMILK';
           position: relative;
-          top: -50px;
         }
         footer {
             position: fixed;
@@ -32,8 +30,8 @@
         .container{
           background-color: #cfc776;
           height: 600px;
-          position: absolute;
-          top: 100px;
+          position: relative;
+          top: 25px;
         }
         #warning{
           text-align: center; 
@@ -52,54 +50,55 @@
           border-radius: 1rem;
         }
         #siginp{
-          position: absolute;
+          position: relative;
           height: 45px;
-          top: 150px;
+          top: 120px;
           left: 300px;
           text-align: center;
         }
         #sigid{
-          position: absolute;
+          position: relative;
           top: 205px;
           text-align: center;
-          left: 420px;
+          left: -100px;
           font-family: "LEMONMILK";
         }
         #x2{
-          position: absolute;
-          top: 148px;
+          position: relative;
+          top: 72px;
           text-align: center;
-          left: 650px;
+          left: 90px;
           font-family: "LEMONMILK";
           font-size: 35px;
         }
         #expin{
-          position: absolute;
+          position: relative;
           height: 45px;
-          top: 100px;
-          left: 715px;
+          top: -50px;
+          left: 700px;
           text-align: center;
           width: 60px;
         }
         #expinid{
-          position: absolute;
-          top: 150px;
+          position: relative;
+          top: 25px;
           text-align: center;
-          left: 705px;
+          left: 160px;
           font-family: "LEMONMILK";
         }
         input{
           font-size: 25px;
         }
         #instructions{
-          position: absolute;
-          left: 425px;
-          font-size: 24px;  
-        }
-        pre{
-          font-family: "Bebas Neue";
+          position: relative;
+          top: 20px;
+          left: 475px;
+          font-size: 24px;
+          width: max-content;
           background-color: #01426A;
-          color: white
+          font-family: "Bebas Neue";
+          color: white;
+          height: min-content
         }
         .btn{
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -109,26 +108,26 @@
           padding:14px 40px;
         }
         #reset{
-          position: absolute;
-          top: 500px;
-          left: 300px;
+          position: relative;
+          top: 250px;
+          left: 200px;
         }
         #convert{
-          position: absolute;
-          top: 500px;
-          right: 300px;
+          position: relative;
+          top: 250px;
+          left: 500px;
         }
         #signout{
-          position: absolute;
-          top: 340px;
+          position: relative;
+          top: 58px;
           text-align: center;
-          left: 100px;
+          left: 84px;
         }
         #signid{
-          position: absolute;
-          top: 390px;
+          position: relative;
+          top: 138px;
           text-align: center;
-          left: 105px;
+          right: 450px;
           font-family: "LEMONMILK";
         }
         #expout{
@@ -180,23 +179,30 @@
         }
         .my-4{
           position: relative;
-          top:250px;
+          top:50px;
         }
         input[type='number']::-webkit-inner-spin-button, 
         input[type='number']::-webkit-outer-spin-button { 
             -webkit-appearance: none;
             margin: 0;
         }
+        #intro{
+          font-size: 16px;
+        }
+        #firstline{
+          text-align: center;
+        }
     </style>
   </head>
   <body>
-    <div class="jumbotron" id="jumbo">
-        <h1 class="display-4";>IEEE-754 Binary-32 Floating Point Converter</h1>
-        <p class="lead">This page allows you to convert binary numbers to the IEEE 754 32-bit base-2 floating-point format and also show the Hexadecimal representation</p>
+    <div id="jumbo">
+        <h1 class="display-4">IEEE-754 Binary-32 Floating Point Converter</h1>
+        <p id="intro">This page allows you to convert binary numbers to the IEEE 754 32-bit base-2 floating-point format and also show the Hexadecimal representation</p>
     </div>
-    <pre id="instructions">
-                      Usage: Enter the significand and exponent of the binary number to the corresponding input box
-You can enter special keywords such as "NaN", "0", "-0", "Inf", "Infinity", "-Inf", "-Infinity" in the Significand input box</pre>
+    <div id="instructions">
+      <p id="firstline">Usage: Enter the significand and exponent of the binary number to the corresponding input box</p>
+      <p>You can enter special keywords such as "NaN", "0", "-0", "Inf", "Infinity", "-Inf", "-Infinity" in the Significand input box</p>
+    </div>
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8" >
