@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>S12 Group 2  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="functions.js"></script>
+    <script src="bignumber.js"></script>
+    <style>
+       @font-face { font-family: LEMONMILK; src: url('LEMONMILK-Medium.otf'); } 
+       @font-face { font-family: Bebas Neue; src: url('BebasNeue-Regular.otf'); } 
+        body{
+            background-image: url('crumpledstiltskin.jpg');
+        }
+        #jumbo{
+          background-color: transparent;
+          height: 125px;
+          text-align: center; 
+          color: black; font-family:'LEMONMILK';
+          position: relative;
+          top: -50px;
+        }
+        footer {
+            position: fixed;
+            height: 30px;
+            bottom: 0;
+            width: 100%;
+            background-color: gray
+        }
+        .container{
+          background-color: #cfc776;
+          height: 600px;
+          position: absolute;
+          top: 100px;
+        }
+        #warning{
+          text-align: center; 
+          background-color: #D44420;
+          position: absolute;
+          width: 50%;
+          height: 30px;
+          left: 325px;
+          border-radius: 12px;
+        }
+        #warning-msg{
+          font-size: 20px;
+          color: white
+        }
+        .form-rounded {
+          border-radius: 1rem;
+        }
+        #siginp{
+          position: absolute;
+          height: 45px;
+          top: 150px;
+          left: 300px;
+          text-align: center;
+        }
+        #sigid{
+          position: absolute;
+          top: 205px;
+          text-align: center;
+          left: 420px;
+          font-family: "LEMONMILK";
+        }
+        #x2{
+          position: absolute;
+          top: 148px;
+          text-align: center;
+          left: 650px;
+          font-family: "LEMONMILK";
+          font-size: 35px;
+        }
+        #expin{
+          position: absolute;
+          height: 45px;
+          top: 100px;
+          left: 715px;
+          text-align: center;
+          width: 60px;
+        }
+        #expinid{
+          position: absolute;
+          top: 150px;
+          text-align: center;
+          left: 705px;
+          font-family: "LEMONMILK";
+        }
+        input{
+          font-size: 25px;
+        }
+        #instructions{
+          position: absolute;
+          left: 425px;
+          font-size: 24px;  
+        }
+        pre{
+          font-family: "Bebas Neue";
+          background-color: #01426A;
+          color: white
+        }
+        .btn{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .btn-lg{
+          border-radius: 12px;
+          padding:14px 40px;
+        }
+        #reset{
+          position: absolute;
+          top: 500px;
+          left: 300px;
+        }
+        #convert{
+          position: absolute;
+          top: 500px;
+          right: 300px;
+        }
+        #signout{
+          position: absolute;
+          top: 340px;
+          text-align: center;
+          left: 100px;
+        }
+        #signid{
+          position: absolute;
+          top: 390px;
+          text-align: center;
+          left: 105px;
+          font-family: "LEMONMILK";
+        }
+        #expout{
+          position: absolute;
+          top: 340px;
+          text-align: center;
+          left: 205px;
+        }
+        #expid{
+          position: absolute;
+          top: 390px;
+          text-align: center;
+          left: 220px;
+          font-family: "LEMONMILK";
+        }
+        #manout{
+          position: absolute;
+          top: 340px;
+          text-align: center;
+          left: 375px;
+        }
+        #manid{
+          position: absolute;
+          top: 390px;
+          text-align: center;
+          left: 525px;
+          font-family: "LEMONMILK";
+        }
+        #hexout{
+          position: absolute;
+          top: 340px;
+          text-align: center;
+          left: 875px;
+        }
+        #hexid{
+          position: absolute;
+          top: 390px;
+          text-align: center;
+          left: 830px;
+          font-family: "LEMONMILK";
+        }
+        #equals{
+          position: absolute;
+          top: 340px;
+          text-align: center;
+          left: 800px;
+          font-family: "LEMONMILK";
+          font-size: 30px;
+        }
+        .my-4{
+          position: relative;
+          top:250px;
+        }
+        input[type='number']::-webkit-inner-spin-button, 
+        input[type='number']::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron" id="jumbo">
+        <h1 class="display-4";>IEEE-754 Binary-32 Floating Point Converter</h1>
+        <p class="lead">This page allows you to convert binary numbers to the IEEE 754 32-bit base-2 floating-point format and also show the Hexadecimal representation</p>
+    </div>
+    <pre id="instructions">
+                      Usage: Enter the significand and exponent of the binary number to the corresponding input box
+You can enter special keywords such as "NaN", "0", "-0", "Inf", "Infinity", "-Inf", "-Infinity" in the Significand input box</pre>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8" >
+          <div class="container">
+            <div id="warning" hidden>
+              <p id="warning-msg"></p>
+            </div>
+            <p id="sigid">Significand</p>
+            <input id="siginp" type="text" class="form-rounded" size="21">
+            <p id="x2">x2</p>
+            <p id="expinid">Exponent</p>
+            <input id="expin" type="number" class="form-rounded" size="3" value="0" step="1">
+            <hr class="my-4">
+            <p id="signid">Sign Bit</p>
+            <input id="signout" type="text" class="form-rounded" size="1" readonly>
+            <p id="expid">Exponent Bits</p>
+            <input id="expout" type="text" class="form-rounded" size="6" readonly >
+            <p id="manid">Mantissa</p>
+            <input id="manout" type="text" class="form-rounded" size="24" readonly >
+            <p id="equals">=</p>
+            <p id="hexid">Hexadecimal Representation</p>
+            <input id="hexout" type="text" class="form-rounded" size="7" readonly >
+            <button id="reset" type="button" class="btn btn-info btn-lg" size>Reset</button>
+            <button id="convert" type="button" class="btn btn-success btn-lg" disabled>Convert</button>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    <footer>
+      <div class="row">
+        <p class="col-md-2" style="color: white; font-size: 20px;">&nbsp;Created By: </p>
+        <p class="col-md-3" style="color: white; font-size: 20px; text-align:justify">Marc Gonzales</p>
+        <p class="col-md-3" style="color: white; font-size: 20px;text-align: justify;">Judy May Mendoza</p>
+        <p class="col-md-3" style="color: white; font-size: 20px;text-align: justify;">Rhon Infante</p>
+        <p class="col-md-1" style="color: white; font-size: 20px;text-align: center;">S12 Group 2</p>
+      </div>
+      </footer>   
+  </body>
+</html>
