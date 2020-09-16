@@ -114,13 +114,13 @@ $(document).ready(function(){
         subject =  /[^0-1.+-]/;
         if(input.match(subject))
         {
-            $('#warning').prop('hidden', false);
+            $('#warning').css('visibility', "visible");
             $('#warning-msg').text("Only binary inputs and special case words are allowed");
             return
         }
         else if(Number.isNaN(inputnum))
         {
-            $('#warning').prop('hidden', false);
+            $('#warning').css('visibility', "visible");
             $('#warning-msg').text("Invalid Input");
             return
         }
