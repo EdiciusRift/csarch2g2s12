@@ -1,3 +1,3 @@
 <?php
-include_once("test.html");
+include_once("try.html");
 ?>

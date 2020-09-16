@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('#siginp').keyup(function(){
         var username = $(this).val();
         if(username == "" || username == null){
-            $('#warning').prop('hidden', false);
+            $('#warning').css('visibility', "visible");
             $('#warning-msg').text("Must not be left blank");
             $('#siginp').css('background-color', 'red');
             $('#convert').prop('disabled', true)
@@ -14,10 +14,10 @@ $(document).ready(function(){
             }
             else if($('#expin').val() == null || $('#expin').val() == "" && $('#expin').css('background-color') == 'rgb(255, 255, 255)'){
                 $('#convert').prop('disabled', true)
-                $('#warning').prop('hidden', true);
+                $('#warning').css('visibility', "hidden");
             }
             else{
-                $('#warning').prop('hidden', true);
+                $('#warning').css('visibility', "hidden");
                 $('#convert').prop('disabled', false)
             }
         }
@@ -25,7 +25,7 @@ $(document).ready(function(){
     $('#expin').keyup(function(){
         var username = $(this).val();
         if(username == "" || username == null||username.includes(".")){
-            $('#warning').prop('hidden', false);
+            $('#warning').css('visibility', "visible");
             $('#warning-msg').text("Invalid input");
             $('#expin').css('background-color', 'red');
             $('#convert').prop('disabled', true)
@@ -37,10 +37,10 @@ $(document).ready(function(){
             }
             else if($('#siginp').val() == null || $('#siginp').val() == "" && $('#siginp').css('background-color') == 'rgb(255, 255, 255)'){
                 $('#convert').prop('disabled', true)
-                $('#warning').prop('hidden', true);
+                $('#warning').css('visibility', "hidden");
             }
             else{
-                $('#warning').prop('hidden', true);
+                $('#warning').css('visibility', "hidden");
                 $('#convert').prop('disabled', false)
             }
         }
@@ -53,7 +53,7 @@ $(document).ready(function(){
         $('#manout').val("");
         $('#hexout').val("");
         $('#convert').prop('disabled', true);
-        $('#warning').prop('hidden', true);
+        $('#warning').css('visibility', "hidden");
         $('#expin').css('background-color', 'white');
         $('#siginp').css('background-color', 'white');
     })

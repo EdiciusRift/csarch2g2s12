@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>S12 Group 2  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="functions.js"></script>
+    <script src="bignumber.js"></script>
+    <style>
+       @font-face { font-family: LEMONMILK; src: url('LEMONMILK-Medium.otf'); } 
+       @font-face { font-family: Bebas Neue; src: url('BebasNeue-Regular.otf'); } 
+        body{
+            background-image: url('crumpledstiltskin.jpg');
+        }
+        .jumbotron{
+            background-color: transparent;
+          text-align: center;
+          color: black; font-family:'LEMONMILK';
+          padding-bottom: 0%;
+          padding-top: 0%;
+        }
+        footer {
+            position: fixed;
+            height: 30px;
+            bottom: 0;
+            width: 100%;
+            background-color: gray
+        }
+        input{
+          font-size: 25px;
+          text-align: center;
+          border-radius: 1rem;
+        }
+        .btn{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .btn-lg{
+          border-radius: 12px;
+          padding:14px 40px;
+          font-family: "LEMONMILK";
+        }
+        input[type='number']::-webkit-inner-spin-button, 
+        input[type='number']::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #maincnt{
+            background-color: #cfc776;
+        }
+        #intro{
+          font-size: 18px;
+        }
+        .line{
+          text-align: center;
+        }
+        #instructions{
+          font-size: 24px;
+          background-color: #01426A;
+          font-family: "Bebas Neue";
+          color: white;
+          height: min-content
+        }
+        .panel{
+            background-color: #cfc776;
+        }
+        div.row > div > p{
+            font-family: "LEMONMILK";
+        }
+        #warning{
+            text-align:center;
+            background-color: #D44420;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            visibility: hidden;
+            margin-right: 30px;
+            font-family: "LEMONMILK";
+        }
+        #expin{
+            width: 60px;
+        }
+        #expinid{
+            margin-left: -8px;
+        }
+        #x2{
+            font-size:35px;
+            padding-left: 40px;
+        }
+        #siginp{
+            height:45px;
+            width:350px;
+            margin-top: 3px;
+            margin-left: -25px;
+        }
+        #sigid{
+            margin-left: 10px;
+            margin-top: -5px;
+        }
+        .my-4{
+            margin-right: 30px;
+        }
+        #signout{
+            margin-left: -30px;
+        }
+        #expout{
+            margin-left: -20px;
+        }
+        #manout{
+            margin-left: -45px;
+        }
+        #equals{
+            font-size: 30px;
+        }
+        #hexout{
+            margin-left: -20px;
+        }
+        #signid{
+            margin-left: -24px;
+            margin-top: -5px;
+        }
+        #expid{
+            margin-left: -6px;
+            margin-top: -5px;
+        }
+        #manid{
+            margin-top:-5px;
+        }
+        #hexid{
+            margin-top: -5px;
+            margin-left: -65px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron">
+        <h1 class="display-4">IEEE-754 Binary-32 Floating Point Converter</h1>
+        <p id="intro">This page allows you to convert binary numbers to the IEEE 754 32-bit base-2 floating-point format and also show the Hexadecimal representation</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="instructions">
+                    <p class="line">Usage: Enter the significand and exponent of the binary number to the corresponding input box</p>
+                    <p class="line">You can enter special keywords such as "NaN", "0", "-0", "Inf", "Infinity", "-Inf", "-Infinity" in the Significand input box</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div id="warning">
+                                    <p id="warning-msg">Only binary inputs and special case words are allowed</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-2">
+                                <input id="expin" type="number" class="form-rounded" size="1" value="0" step="1">
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3">
+                                <input id="siginp" type="text" class="form-rounded" size="21">
+                            </div>
+                            <div class="col-md-1">
+                                <p id="x2">x2</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p id="expinid">Exponent</p>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-3">
+                                <p id="sigid">Significand</p>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr class="my-4">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1">
+                                <input id="signout" type="text" class="form-rounded" size="1" readonly>
+                            </div>
+                            <div class="col-md-2">
+                                <input id="expout" type="text" class="form-rounded" size="6" readonly >
+                            </div>
+                            <div class="col-md-4">
+                                <input id="manout" type="text" class="form-rounded" size="24" readonly >
+                            </div>
+                            <div class="col-md-1">
+                                <p id="equals">=</p>
+                            </div>
+                            <div class="col-md-1">
+                                <input id="hexout" type="text" class="form-rounded" size="7" readonly >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1">
+                                <p id="signid">Sign Bit</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p id="expid">Exponent Bits</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p id="manid">Mantissa</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p id="hexid">Hexadecimal Representation</p>
+                            </div>
+                        </div>
+                        <br><br><br><br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <button id="reset" type="button" class="btn btn-info btn-lg" size>Reset</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="convert" type="button" class="btn btn-success btn-lg" disabled>Convert</button>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+      <div class="row">
+        <p class="col-md-2" style="color: white; font-size: 20px;">&nbsp;Created By: </p>
+        <p class="col-md-3" style="color: white; font-size: 20px; text-align:justify">Marc Gonzales</p>
+        <p class="col-md-3" style="color: white; font-size: 20px;text-align: justify;">Judy May Mendoza</p>
+        <p class="col-md-3" style="color: white; font-size: 20px;text-align: justify;">Rhon Infante</p>
+        <p class="col-md-1" style="color: white; font-size: 20px;text-align: center;">S12 Group 2</p>
+      </div>
+      </footer>   
+  </body>
+</html>
