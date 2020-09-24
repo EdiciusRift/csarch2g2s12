@@ -109,6 +109,9 @@ $(document).ready(function(){
             $('#hexout').val(hexoutput);
             return
         }
+        if(!input.includes(".")){
+            input = input.concat(".0");
+        }
         var accinput = new BigNumber(0.0).plus(input)
         inputnum = Number(input)
         subject =  /[^0-1.+-]/;
